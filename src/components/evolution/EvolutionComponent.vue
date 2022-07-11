@@ -61,7 +61,7 @@ export default {
       this.options = {
         ...this.options,
         xaxis: {
-          categories: this.evolution.map((element) => this.$moment(element.date).format("DD-MM-YYY")),
+          categories: this.evolution.map((element) => this.$moment(element.date).format("DD-MM-YYYY")),
         },
       };
     },

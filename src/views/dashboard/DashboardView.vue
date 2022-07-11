@@ -16,9 +16,7 @@
         </div>
       </div>
     </div>
-    <b-button variant="warning" class="chatbot-btn shadow m-2">
-      <b-icon icon="emoji-sunglasses"></b-icon>
-    </b-button>
+    <ChatBotComponent></ChatBotComponent>
   </div>
 </template>
 
@@ -29,6 +27,7 @@ import EvolutionComponent from "@/components/evolution/EvolutionComponent.vue";
 import AlertsComponent from "@/components/alerts/AlertsComponent.vue";
 import NavbarComponent from "@/components/navbar/NavbarComponent.vue";
 import TimelineComponent from "@/components/timeline/TimelineComponent.vue";
+import ChatBotComponent from "@/components/chatbot/ChatBotComponent.vue";
 
 export default Vue.extend({
   name: "DashboardView",
@@ -37,6 +36,7 @@ export default Vue.extend({
     AlertsComponent,
     NavbarComponent,
     TimelineComponent,
+    ChatBotComponent,
   },
   data() {
     return {};
@@ -58,13 +58,5 @@ export default Vue.extend({
 <style scoped>
 #dashoard {
   height: 100vh;
-}
-.chatbot-btn {
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  position: fixed;
-  bottom: 0px;
-  right: 0px;
 }
 </style>
