@@ -32,7 +32,7 @@ The following frameworks/libraries have been used to develop this project
     ```sh
     npm run serve
     ```
-2. The application will open automatically in your browser at http://localhost:3000
+2. The application will open automatically in your browser at http://localhost:8080
 
 
 ## License
