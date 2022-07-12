@@ -2,13 +2,18 @@
   <div id="chatbot">
     <b-card v-if="showChat" class="chat" header-bg-variant="warning" header-text-variant="black" header="Chatbot">
       <b-card-text>
-        <p v-for="(message, index) in history" :key="index">
-          {{ message }}
-        </p>
+        <div v-for="(message, index) in history" :key="index">
+          <div v-if="message.type == 'question'" class="d-flex justify-content-start p-1">
+            <p class="question p-1">{{ message.title }}</p>
+          </div>
+          <div v-else class="d-flex justify-content-end p-1">
+            <p class="answer p-1">{{ message.title }}</p>
+          </div>
+        </div>
       </b-card-text>
       <template #footer>
-        <b-button v-for="(answer, index) in question.answers" :key="index" class="m-1" @click="answerQuestion(answer)">
-          {{ answer.title }}
+        <b-button v-if="question" class="m-1 p-1" @click="answerQuestion()">
+          {{ question.title }}
         </b-button>
       </template>
     </b-card>
@@ -25,7 +30,9 @@ export default {
   name: "ChatBotComponent",
   data() {
     return {
-      question: {},
+      question: {
+        answers: [],
+      },
       history: [],
       showChat: false,
     };
@@ -36,23 +43,34 @@ export default {
   methods: {
     chat() {
       this.showChat = !this.showChat;
-
       if (this.showChat) {
+        console.log(this.history);
         this.generateQuestion();
-        this.history.push(this.question.title);
-        console.log(this.question);
-      } else {
-        this.question = {};
-        this.history = [];
       }
     },
-    answerQuestion(answer) {
-      this.history.push(answer.title);
+    generateQuestion() {
+      this.question = this.questions[Math.floor(Math.random() * (this.questions.length - 1))];
+      this.answers = this.question.answers;
+      console.log(this.question);
+      console.log(this.answers);
+    },
+    answerQuestion() {
+      this.history.push({
+        title: this.question.title,
+        type: "question",
+      });
+      this.history.push({
+        title: this.question.answers[Math.floor(Math.random() * (this.question.answers.length - 1))].title,
+        type: "answer",
+      });
       this.generateQuestion();
     },
-    generateQuestion() {
-      this.question = this.questions.questions[Math.floor(Math.random() * this.questions.questions.length - 1)];
-    },
+  },
+  mounted() {
+    this.history.push({
+      title: "Hi! what can i do for you?",
+      type: "answer",
+    });
   },
 };
 </script>
@@ -82,5 +100,15 @@ export default {
     height: 60%;
     width: 70%;
   }
+}
+
+.question {
+  background-color: lightblue;
+  border-radius: 5px 5px 5px 0;
+}
+
+.answer {
+  background-color: lightgreen;
+  border-radius: 5px 5px 0 5px;
 }
 </style>

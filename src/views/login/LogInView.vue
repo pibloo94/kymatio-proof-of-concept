@@ -9,7 +9,6 @@
           <b-form-group id="password" class="pt-2" label="Password" label-for="password-input">
             <b-form-input id="password-input" v-model="form.password" type="password"></b-form-input>
           </b-form-group>
-
           <div class="pt-4">
             <b-button class="submit-btn p-2" type="submit" variant="outline-info">Submit</b-button>
             <b-button class="reset-btn p-2" type="reset" variant="outline-danger">Reset</b-button>
