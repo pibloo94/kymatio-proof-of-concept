@@ -5,6 +5,8 @@
 
 In this proof of concept a user dashborad has been developed. This dashborad collects and displays data retrieved from an API and displays it in the application interface.
 
+![alt text](src/assets/example.png)
+
 ### Built With
 
 The following frameworks/libraries have been used to develop this project
@@ -34,6 +36,15 @@ The following frameworks/libraries have been used to develop this project
     ```
 2. The application will open automatically in your browser at http://localhost:8080
 
+## Goals
+
+- [x] Fake login (write on inputs to pass the login)
+- [x] Notifications (included in navbar)
+- [x] User info (included in navbar, has a visual bug with avatar image)
+- [x] Evolution chart (need to click on update button to show data on chart)
+- [x] Timeline chart (need to click on update button to show data on chart)
+- [x] Chatbot (has a visual bug with the scroll)
+- [ ] Testing
 
 ## License
 
