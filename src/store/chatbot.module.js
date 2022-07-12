@@ -22,7 +22,6 @@ export const actions = {
   async getChatBotQuestions({ commit }) {
     const response = await ChatBotService.getChatBotQuestions();
     const data = response.data[0];
-    console.log(data);
     commit("SET_QUESTIONS", data.questions);
   },
 };

@@ -50,7 +50,6 @@ export const actions = {
   async getProfileData({ commit }) {
     const response = await DashboradService.getProfileData();
     const data = response.data[0];
-    console.log(data);
     commit("SET_USER", { first_name: data.first_name, last_name: data.last_name, avatar: data.avatar });
     commit("SET_ALERTS", data.alerts);
     commit("SET_EVOLUTION", data.evolution);

@@ -44,15 +44,13 @@ export default {
     chat() {
       this.showChat = !this.showChat;
       if (this.showChat) {
-        console.log(this.history);
         this.generateQuestion();
       }
     },
     generateQuestion() {
       this.question = this.questions[Math.floor(Math.random() * (this.questions.length - 1))];
       this.answers = this.question.answers;
-      console.log(this.question);
-      console.log(this.answers);
+
     },
     answerQuestion() {
       this.history.push({
