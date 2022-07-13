@@ -55,12 +55,14 @@ export default {
     getData() {
       this.series = [
         {
+          ...this.series,
           data: this.evolution.map((element) => element.value),
         },
       ];
       this.options = {
         ...this.options,
         xaxis: {
+          ...this.options.xaxis,
           categories: this.evolution.map((element) => this.$moment(element.date).format("DD-MM-YYYY")),
         },
       };
